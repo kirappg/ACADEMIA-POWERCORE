@@ -1,0 +1,561 @@
+# ACADEMIA-POWERCORE<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Power Core Academias</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Libre Bodoni', serif;
+            background-color: #000;
+            color: #fff;
+        }
+        .hero {
+            background-image: url('http://googleusercontent.com/file_content/1');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            position: relative;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+        }
+        .hero-content {
+            position: relative;
+            z-index: 10;
+        }
+        .text-orange-500 {
+            color: #F97316;
+        }
+        .bg-orange-500 {
+            background-color: #F97316;
+        }
+        .border-orange-500 {
+            border-color: #F97316;
+        }
+        .plan-card {
+            background: #1a1a1a;
+            border: 1px solid #333;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .plan-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(249, 115, 22, 0.3);
+        }
+        .plan-card.highlight {
+            background: linear-gradient(145deg, #F97316, #d96813);
+            transform: scale(1.05);
+            border: none;
+            box-shadow: 0 15px 30px rgba(249, 115, 22, 0.5);
+        }
+        .modalidade-card {
+            position: relative;
+            overflow: hidden;
+        }
+        .modalidade-card img {
+            filter: grayscale(100%);
+            transition: transform 0.5s, filter 0.5s;
+        }
+        .modalidade-card:hover img {
+            filter: grayscale(0%);
+            transform: scale(1.1);
+        }
+        .modalidade-overlay {
+            background: rgba(0, 0, 0, 0.7);
+            transition: opacity 0.5s;
+        }
+        .modalidade-card:hover .modalidade-overlay {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Cabeçalho / Barra de Navegação -->
+    <header class="bg-black bg-opacity-70 fixed top-0 w-full z-50 shadow-lg">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="flex items-center space-x-2">
+                <img src="https://placehold.co/120x40/000000/F97316?text=POWER+CORE" alt="Power Core Academias Logo" class="h-10">
+            </a>
+            <div class="hidden md:flex items-center space-x-6">
+                <a href="#planos" class="text-white hover:text-orange-500 transition duration-300">Planos</a>
+                <a href="#modalidades" class="text-white hover:text-orange-500 transition duration-300">Modalidades</a>
+                <a href="#unidades" class="text-white hover:text-orange-500 transition duration-300">Unidades</a>
+                <a href="#gemini" class="text-white hover:text-orange-500 transition duration-300">Seu Treino ✨</a>
+                <a href="#contato" class="text-white hover:text-orange-500 transition duration-300">Contato</a>
+            </div>
+            <button id="menu-button" class="md:hidden text-white focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"/>
+                </svg>
+            </button>
+        </nav>
+        <!-- Menu Mobile -->
+        <div id="mobile-menu" class="hidden md:hidden bg-black bg-opacity-90 w-full py-4 text-center">
+            <a href="#planos" class="block py-2 text-white hover:text-orange-500 transition duration-300">Planos</a>
+            <a href="#modalidades" class="block py-2 text-white hover:text-orange-500 transition duration-300">Modalidades</a>
+            <a href="#unidades" class="block py-2 text-white hover:text-orange-500 transition duration-300">Unidades</a>
+            <a href="#gemini" class="block py-2 text-white hover:text-orange-500 transition duration-300">Seu Treino ✨</a>
+            <a href="#contato" class="block py-2 text-white hover:text-orange-500 transition duration-300">Contato</a>
+        </div>
+    </header>
+
+    <!-- Seção Principal (Hero) -->
+    <section class="hero flex items-center justify-center text-center">
+        <div class="hero-content bg-black bg-opacity-50 p-8 rounded-lg max-w-2xl mx-auto">
+            <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold text-white leading-tight">
+                Seu Potencial. Sua Força. Sua Conquista.
+            </h1>
+            <p class="mt-4 text-lg md:text-xl text-white">
+                Na Power Core, transformamos metas em resultados.
+            </p>
+            <a href="#planos" class="mt-8 inline-block px-8 py-4 bg-orange-500 text-black font-bold text-lg rounded-full hover:bg-white hover:text-orange-500 transition duration-300 transform hover:scale-105">
+                QUERO COMEÇAR AGORA!
+            </a>
+        </div>
+    </section>
+
+    <!-- Seção de Planos -->
+    <section id="planos" class="bg-gray-900 py-20">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-4xl font-bold text-white mb-4">Escolha o Plano Perfeito</h2>
+            <p class="text-gray-400 mb-12 text-lg">Treine do seu jeito, no seu tempo.</p>
+            <div class="grid md:grid-cols-3 gap-12 items-center">
+                <!-- Plano Core Power (Mensal sem fidelidade) -->
+                <div class="plan-card p-10 rounded-xl shadow-2xl">
+                    <h3 class="text-3xl font-bold text-orange-500 mb-2">Core Power</h3>
+                    <p class="text-5xl font-bold my-4">R$ 129,90 <span class="text-xl text-gray-400 font-normal">/ mês</span></p>
+                    <ul class="text-gray-300 text-left space-y-2 mb-8">
+                        <li>✅ Academia climatizada</li>
+                        <li>✅ App do aluno</li>
+                        <li>✅ Todas as modalidades</li>
+                        <li>✅ Armários rotativos</li>
+                        <li>✅ Estacionamento</li>
+                        <li>✅ Professores certificados com CREF</li>
+                        <li>✅ Vestiário</li>
+                        <li>✅ Academia 365 dias no ano</li>
+                    </ul>
+                    <a href="#" id="buy-core-power" class="block w-full py-4 bg-orange-500 text-black font-bold text-lg rounded-full hover:bg-white hover:text-orange-500 transition duration-300 transform hover:scale-105">
+                        ASSINAR AGORA
+                    </a>
+                </div>
+                <!-- Plano Core Plus (Recorrente) -->
+                <div class="plan-card highlight p-12 rounded-xl shadow-2xl">
+                    <h3 class="text-3xl font-bold text-white mb-2">Core Plus</h3>
+                    <p class="text-5xl font-bold my-4 text-white">R$ 99,90 <span class="text-xl font-normal">/ mês</span></p>
+                    <p class="text-white font-semibold mb-6">Plano Recorrente</p>
+                    <ul class="text-black text-left space-y-2 mb-8">
+                        <li>✅ Academia climatizada</li>
+                        <li>✅ App do aluno</li>
+                        <li>✅ Todas as modalidades</li>
+                        <li>✅ Armários rotativos</li>
+                        <li>✅ Estacionamento</li>
+                        <li>✅ Professores certificados com CREF</li>
+                        <li>✅ Vestiário</li>
+                        <li>✅ Academia 365 dias no ano</li>
+                    </ul>
+                    <a href="#" id="buy-core-plus" class="block w-full py-4 bg-white text-orange-500 font-bold text-lg rounded-full hover:bg-gray-900 hover:text-white transition duration-300 transform hover:scale-105">
+                        ASSINAR AGORA
+                    </a>
+                </div>
+                <!-- Plano Anual -->
+                <div class="plan-card p-10 rounded-xl shadow-2xl">
+                    <h3 class="text-3xl font-bold text-white mb-2">Plano Anual</h3>
+                    <p class="text-5xl font-bold my-4 text-white">R$ 900,00</p>
+                    <ul class="text-gray-300 text-left space-y-2 mb-8">
+                        <li>✅ Academia climatizada</li>
+                        <li>✅ App do aluno</li>
+                        <li>✅ Todas as modalidades</li>
+                        <li>✅ Armários rotativos</li>
+                        <li>✅ Estacionamento</li>
+                        <li>✅ Professores certificados com CREF</li>
+                        <li>✅ Vestiário</li>
+                        <li>✅ Academia 365 dias no ano</li>
+                    </ul>
+                    <a href="#" id="buy-anual" class="block w-full py-4 bg-orange-500 text-black font-bold text-lg rounded-full hover:bg-white hover:text-orange-500 transition duration-300 transform hover:scale-105">
+                        COMPRAR PLANO ANUAL
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Seção do Modal de Compra -->
+    <div id="checkout-modal" class="fixed inset-0 bg-black bg-opacity-75 z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-gray-800 p-8 rounded-lg shadow-2xl w-full max-w-lg mx-auto relative">
+            <button id="close-modal-btn" class="absolute top-4 right-4 text-white hover:text-orange-500">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            <h3 id="checkout-title" class="text-3xl font-bold text-orange-500 mb-4"></h3>
+            <p id="checkout-price" class="text-2xl font-semibold mb-6"></p>
+
+            <form class="space-y-4">
+                <div>
+                    <label for="checkout-name" class="block text-gray-300 font-bold mb-2">Nome Completo</label>
+                    <input type="text" id="checkout-name" class="w-full p-3 rounded-lg bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500">
+                </div>
+                <div>
+                    <label for="checkout-email" class="block text-gray-300 font-bold mb-2">E-mail</label>
+                    <input type="email" id="checkout-email" class="w-full p-3 rounded-lg bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500">
+                </div>
+                <div>
+                    <label for="checkout-unit" class="block text-gray-300 font-bold mb-2">Unidade</label>
+                    <select id="checkout-unit" class="w-full p-3 rounded-lg bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-orange-500">
+                        <option value="unidade1">Unidade 1 - Rua Exemplo, 1234</option>
+                        <option value="unidade2">Unidade 2 - Avenida Nova, 5678</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="checkout-card" class="block text-gray-300 font-bold mb-2">Número do Cartão</label>
+                    <input type="text" id="checkout-card" class="w-full p-3 rounded-lg bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500">
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label for="checkout-expiry" class="block text-gray-300 font-bold mb-2">Validade</label>
+                        <input type="text" id="checkout-expiry" class="w-full p-3 rounded-lg bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500" placeholder="MM/AA">
+                    </div>
+                    <div>
+                        <label for="checkout-cvv" class="block text-gray-300 font-bold mb-2">CVV</label>
+                        <input type="text" id="checkout-cvv" class="w-full p-3 rounded-lg bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500">
+                    </div>
+                </div>
+                <button type="submit" class="w-full py-3 bg-orange-500 text-black font-bold rounded-full hover:bg-white hover:text-orange-500 transition duration-300">
+                    Confirmar Pagamento
+                </button>
+            </form>
+        </div>
+    </div>
+
+
+    <!-- Seção de Modalidades -->
+    <section id="modalidades" class="bg-black py-20">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-4xl font-bold text-white mb-4">Modalidades que Transformam</h2>
+            <p class="text-gray-400 mb-12 text-lg">Encontre a atividade que mais combina com você.</p>
+            <div class="grid md:grid-cols-4 gap-8">
+                <!-- Musculação -->
+                <div class="modalidade-card group relative rounded-lg overflow-hidden cursor-pointer p-4">
+                    <img src="https://placehold.co/500x300/F97316/000000?text=Musculação" alt="Musculação" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="modalidade-overlay absolute inset-0 bg-black bg-opacity-70 flex flex-col items-center justify-center p-4 opacity-0 transition-opacity duration-500">
+                        <h3 class="text-2xl font-bold text-orange-500 mb-2">Musculação</h3>
+                        <p class="text-white text-center text-sm font-bold italic">
+                            Construa força e definição muscular com equipamentos modernos.
+                        </p>
+                    </div>
+                </div>
+                <!-- Pilates -->
+                <div class="modalidade-card group relative rounded-lg overflow-hidden cursor-pointer p-4">
+                    <img src="https://placehold.co/500x300/F97316/000000?text=Pilates" alt="Pilates" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="modalidade-overlay absolute inset-0 bg-black bg-opacity-70 flex flex-col items-center justify-center p-4 opacity-0 transition-opacity duration-500">
+                        <h3 class="text-2xl font-bold text-orange-500 mb-2">Pilates</h3>
+                        <p class="text-white text-center text-sm font-bold italic">
+                            Melhore sua postura, flexibilidade e força com movimentos controlados, focando em estabilidade e controle.
+                        </p>
+                    </div>
+                </div>
+                <!-- Cross Core -->
+                <div class="modalidade-card group relative rounded-lg overflow-hidden cursor-pointer p-4">
+                    <img src="https://placehold.co/500x300/F97316/000000?text=Cross+Core" alt="Cross Core" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="modalidade-overlay absolute inset-0 bg-black bg-opacity-70 flex flex-col items-center justify-center p-4 opacity-0 transition-opacity duration-500">
+                        <h3 class="text-2xl font-bold text-orange-500 mb-2">Cross Core</h3>
+                        <p class="text-white text-center text-sm font-bold italic">
+                            Treino funcional de alta intensidade que combina força, cardio e agilidade para um corpo mais resistente.
+                        </p>
+                    </div>
+                </div>
+                <!-- Ritmos -->
+                <div class="modalidade-card group relative rounded-lg overflow-hidden cursor-pointer p-4">
+                    <img src="https://placehold.co/500x300/F97316/000000?text=Ritmos" alt="Ritmos" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="modalidade-overlay absolute inset-0 bg-black bg-opacity-70 flex flex-col items-center justify-center p-4 opacity-0 transition-opacity duration-500">
+                        <h3 class="text-2xl font-bold text-orange-500 mb-2">Ritmos</h3>
+                        <p class="text-white text-center text-sm font-bold italic">
+                            Aulas de dança energéticas para queimar calorias e se divertir ao som de músicas variadas.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Unidades -->
+    <section id="unidades" class="bg-gray-900 py-20">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-4xl font-bold text-white mb-4">Nossas Unidades</h2>
+            <p class="text-gray-400 mb-12 text-lg">Estamos mais perto de você do que imagina.</p>
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Unidade 1 -->
+                <div class="bg-gray-800 p-10 rounded-xl shadow-2xl border border-gray-700">
+                    <img src="https://placehold.co/600x400/000000/F97316?text=Unidade+1" alt="Unidade 1" class="w-full rounded-lg mb-6">
+                    <h3 class="text-3xl font-bold text-white mb-2">Unidade Centro</h3>
+                    <p class="text-gray-400 mb-6">Rua Exemplo, 1234 - Bairro XYZ</p>
+                    <a href="#planos" id="select-unidade1" class="inline-block px-8 py-4 bg-orange-500 text-black font-bold text-lg rounded-full hover:bg-white hover:text-orange-500 transition duration-300 transform hover:scale-105">
+                        Escolher esta unidade
+                    </a>
+                </div>
+                <!-- Unidade 2 -->
+                <div class="bg-gray-800 p-10 rounded-xl shadow-2xl border border-gray-700">
+                    <img src="https://placehold.co/600x400/000000/F97316?text=Unidade+2" alt="Unidade 2" class="w-full rounded-lg mb-6">
+                    <h3 class="text-3xl font-bold text-white mb-2">Unidade Bairro Novo</h3>
+                    <p class="text-gray-400 mb-6">Avenida Nova, 5678 - Bairro ABC</p>
+                    <a href="#planos" id="select-unidade2" class="inline-block px-8 py-4 bg-orange-500 text-black font-bold text-lg rounded-full hover:bg-white hover:text-orange-500 transition duration-300 transform hover:scale-105">
+                        Escolher esta unidade
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de IA -->
+    <section id="gemini" class="bg-gray-900 py-20">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-4xl font-bold text-white mb-4">Seu Treino Personalizado com IA ✨</h2>
+            <p class="text-gray-400 mb-12 text-lg">Obtenha recomendações e descrições de treino criadas pelo nosso assistente de IA.</p>
+            <div class="max-w-4xl mx-auto space-y-12">
+                <!-- Gerador de Descrição de Treino -->
+                <div class="bg-gray-800 p-10 rounded-xl shadow-2xl border border-gray-700">
+                    <h3 class="text-3xl font-bold text-orange-500 mb-4">Gerador de Descrição de Treino</h3>
+                    <p class="text-gray-400 mb-6">Descreva seu objetivo (ex: "treino de perna para iniciantes") e receba uma descrição completa.</p>
+                    <textarea id="treino-input" rows="3" class="w-full p-4 rounded-lg bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500 text-lg"></textarea>
+                    <button id="gerar-treino-btn" class="mt-6 px-10 py-4 bg-orange-500 text-black font-bold text-lg rounded-full hover:bg-white hover:text-orange-500 transition duration-300 transform hover:scale-105">
+                        Gerar Descrição ✨
+                    </button>
+                    <div id="treino-output-loader" class="mt-6 hidden">
+                        <p class="text-gray-400 animate-pulse text-lg">Gerando...</p>
+                    </div>
+                    <div id="treino-output" class="mt-8 p-6 rounded-xl bg-gray-700 text-left text-gray-300 text-lg hidden"></div>
+                </div>
+
+                <!-- Recomendador de Aulas -->
+                <div class="bg-gray-800 p-10 rounded-xl shadow-2xl border border-gray-700">
+                    <h3 class="text-3xl font-bold text-orange-500 mb-4">Recomendador de Aulas</h3>
+                    <p class="text-gray-400 mb-6">Conte um pouco sobre o que você busca (ex: "algo para relaxar" ou "uma aula para queimar calorias") e receba uma sugestão.</p>
+                    <textarea id="modalidade-input" rows="3" class="w-full p-4 rounded-lg bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500 text-lg"></textarea>
+                    <button id="recomendar-modalidade-btn" class="mt-6 px-10 py-4 bg-orange-500 text-black font-bold text-lg rounded-full hover:bg-white hover:text-orange-500 transition duration-300 transform hover:scale-105">
+                        Recomendar Modalidade ✨
+                    </button>
+                    <div id="modalidade-output-loader" class="mt-6 hidden">
+                        <p class="text-gray-400 animate-pulse text-lg">Buscando...</p>
+                    </div>
+                    <div id="modalidade-output" class="mt-8 p-6 rounded-xl bg-gray-700 text-left text-gray-300 text-lg hidden"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Sobre Nós e Contato -->
+    <section id="contato" class="bg-gray-900 py-20">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-4xl font-bold text-white mb-4">Nossa Missão</h2>
+            <p class="max-w-3xl mx-auto text-gray-400 mb-12 text-lg">
+                Na Power Core, acreditamos que a verdadeira força vem de dentro. Mais do que uma academia, somos uma comunidade dedicada a ajudar você a superar limites e alcançar uma versão mais forte e saudável de si mesmo.
+            </p>
+
+            <div class="grid md:grid-cols-2 gap-12 items-center mt-16">
+                <!-- Formulário de Contato -->
+                <div class="bg-gray-800 p-10 rounded-xl shadow-2xl">
+                    <h3 class="text-3xl font-bold text-white mb-6">Entre em Contato</h3>
+                    <form class="space-y-6">
+                        <input type="text" placeholder="Nome Completo" class="w-full p-4 rounded-lg bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500 text-lg">
+                        <input type="email" placeholder="E-mail" class="w-full p-4 rounded-lg bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500 text-lg">
+                        <input type="tel" placeholder="Telefone" class="w-full p-4 rounded-lg bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500 text-lg">
+                        <textarea rows="4" placeholder="Sua Mensagem" class="w-full p-4 rounded-lg bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500 text-lg"></textarea>
+                        <button type="submit" class="w-full py-4 bg-orange-500 text-black font-bold text-lg rounded-full hover:bg-white hover:text-orange-500 transition duration-300 transform hover:scale-105">
+                            Enviar Mensagem
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Informações de Localização -->
+                <div class="flex flex-col space-y-8 text-left">
+                    <div class="text-white">
+                        <h4 class="font-bold text-2xl mb-2">Endereço</h4>
+                        <p class="text-gray-400 text-lg">Rua Exemplo, 1234<br>Bairro XYZ, Cidade - Estado</p>
+                    </div>
+                    <div class="text-white">
+                        <h4 class="font-bold text-2xl mb-2">Telefone</h4>
+                        <p class="text-gray-400 text-lg">(XX) XXXX-XXXX</p>
+                    </div>
+                    <div class="text-white">
+                        <h4 class="font-bold text-2xl mb-2">E-mail</h4>
+                        <p class="text-gray-400 text-lg">contato@powercore.com.br</p>
+                    </div>
+                    <!-- Placeholder para o Mapa -->
+                    <div class="w-full h-80 bg-gray-800 rounded-xl shadow-inner flex items-center justify-center">
+                        <p class="text-gray-500 text-lg">Mapa do Google Maps</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer class="bg-black py-10">
+        <div class="container mx-auto px-6 text-center text-gray-400">
+            <div class="flex items-center justify-center space-x-2 mb-6">
+                <img src="https://placehold.co/120x40/000000/F97316?text=POWER+CORE" alt="Power Core Academias Logo" class="h-10">
+            </div>
+            <p class="text-sm">&copy; 2024 Power Core Academias. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=`;
+
+        const treinoInput = document.getElementById('treino-input');
+        const gerarTreinoBtn = document.getElementById('gerar-treino-btn');
+        const treinoOutput = document.getElementById('treino-output');
+        const treinoOutputLoader = document.getElementById('treino-output-loader');
+
+        const modalidadeInput = document.getElementById('modalidade-input');
+        const recomendarModalidadeBtn = document.getElementById('recomendar-modalidade-btn');
+        const modalidadeOutput = document.getElementById('modalidade-output');
+        const modalidadeOutputLoader = document.getElementById('modalidade-output-loader');
+        
+        const buyButtons = document.querySelectorAll('[id^="buy-"]');
+        const checkoutModal = document.getElementById('checkout-modal');
+        const closeModalBtn = document.getElementById('close-modal-btn');
+        const checkoutTitle = document.getElementById('checkout-title');
+        const checkoutPrice = document.getElementById('checkout-price');
+        const checkoutUnit = document.getElementById('checkout-unit');
+
+        async function generateContent(prompt) {
+            treinoOutput.classList.add('hidden');
+            modalidadeOutput.classList.add('hidden');
+            try {
+                const payload = {
+                    contents: [{ parts: [{ text: prompt }] }],
+                    tools: [{ "google_search": {} }],
+                    systemInstruction: {
+                        parts: [{ text: "Você é um assistente de IA focado em fitness e saúde. Sua missão é fornecer descrições de treinos ou recomendações de aulas de forma concisa e útil. Responda apenas com o conteúdo solicitado, sem formalidades ou introduções." }]
+                    },
+                };
+
+                const response = await fetch(API_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                if (!response.ok) {
+                    throw new Error(`Erro na API: ${response.status} ${response.statusText}`);
+                }
+
+                const result = await response.json();
+                const candidate = result.candidates?.[0];
+
+                if (candidate && candidate.content?.parts?.[0]?.text) {
+                    const text = candidate.content.parts[0].text;
+                    let sources = [];
+                    const groundingMetadata = candidate.groundingMetadata;
+                    if (groundingMetadata && groundingMetadata.groundingAttributions) {
+                        sources = groundingMetadata.groundingAttributions
+                            .map(attribution => ({
+                                uri: attribution.web?.uri,
+                                title: attribution.web?.title,
+                            }))
+                            .filter(source => source.uri && source.title);
+                    }
+                    return { text, sources };
+                } else {
+                    return { text: "Desculpe, não consegui gerar uma resposta. Tente novamente." };
+                }
+
+            } catch (error) {
+                console.error("Erro ao chamar a API:", error);
+                return { text: "Houve um erro na comunicação com a API. Tente mais tarde." };
+            }
+        }
+
+        gerarTreinoBtn.addEventListener('click', async () => {
+            const prompt = `Crie uma descrição de treino para o seguinte objetivo: "${treinoInput.value}". Inclua o tipo de treino, a intensidade, o foco e exemplos de exercícios.`;
+            if (treinoInput.value.trim() === "") return;
+
+            treinoOutputLoader.classList.remove('hidden');
+            treinoOutput.classList.add('hidden');
+
+            const { text } = await generateContent(prompt);
+
+            treinoOutput.innerHTML = `<p>${text}</p>`;
+            treinoOutputLoader.classList.add('hidden');
+            treinoOutput.classList.remove('hidden');
+        });
+
+        recomendarModalidadeBtn.addEventListener('click', async () => {
+            const prompt = `Recomende uma modalidade de academia para alguém que busca o seguinte: "${modalidadeInput.value}". As modalidades disponíveis são Musculação, Pilates, Cross Core e Ritmos.`;
+            if (modalidadeInput.value.trim() === "") return;
+
+            modalidadeOutputLoader.classList.remove('hidden');
+            modalidadeOutput.classList.add('hidden');
+
+            const { text } = await generateContent(prompt);
+
+            modalidadeOutput.innerHTML = `<p>${text}</p>`;
+            modalidadeOutputLoader.classList.add('hidden');
+            modalidadeOutput.classList.remove('hidden');
+        });
+
+        document.getElementById('menu-button').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        const selectButtons = document.querySelectorAll('[id^="select-unidade"]');
+        selectButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                const unitId = e.target.id;
+                let unitName = '';
+                if(unitId === 'select-unidade1') {
+                    unitName = 'Unidade 1 - Centro';
+                } else if(unitId === 'select-unidade2') {
+                    unitName = 'Unidade 2 - Bairro Novo';
+                }
+                document.getElementById('checkout-unit').value = unitId;
+                window.location.href = '#planos';
+            });
+        });
+
+        buyButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                const planId = e.target.id;
+                let planName = '';
+                let planPrice = '';
+
+                switch(planId) {
+                    case 'buy-core-power':
+                        planName = 'Core Power';
+                        planPrice = 'R$ 129,90 / mês';
+                        break;
+                    case 'buy-core-plus':
+                        planName = 'Core Plus';
+                        planPrice = 'R$ 99,90 / mês';
+                        break;
+                    case 'buy-anual':
+                        planName = 'Plano Anual';
+                        planPrice = 'R$ 900,00';
+                        break;
+                }
+
+                checkoutTitle.textContent = planName;
+                checkoutPrice.textContent = planPrice;
+                checkoutModal.classList.remove('hidden');
+            });
+        });
+
+        closeModalBtn.addEventListener('click', () => {
+            checkoutModal.classList.add('hidden');
+        });
+    </script>
+</body>
+</html>
